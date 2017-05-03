@@ -2,7 +2,12 @@ package com.pfa.searchHospitalWS;
 
 public class Hospital {
 	/*
-	 * attributs setter and getters
+	 * Attributes 
 	 */
 
+	
+	
+	/*
+	 * setter and getters
+	 */
 }

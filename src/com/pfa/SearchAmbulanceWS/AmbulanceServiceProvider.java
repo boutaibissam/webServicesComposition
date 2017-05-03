@@ -11,7 +11,7 @@ public class AmbulanceServiceProvider implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/*
-	 * Fields 
+	 * Attributes
 	 */
 	
 	private int ambulanceServicePRoviderID;
@@ -28,7 +28,7 @@ public class AmbulanceServiceProvider implements Serializable {
 	public AmbulanceServiceProvider(){}
 
 	/*
-	 *  Constructor with all fields as argument
+	 *  Constructor with all attributes as argument
 	 */
 	
 	public  AmbulanceServiceProvider(int ambulanceServicePRoviderID, String ambulanceServiceProviderName,String city,
