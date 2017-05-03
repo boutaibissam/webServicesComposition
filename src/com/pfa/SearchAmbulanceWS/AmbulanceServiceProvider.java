@@ -31,8 +31,8 @@ public class AmbulanceServiceProvider implements Serializable {
 	 *  Constructor with all attributes as argument
 	 */
 	
-	public  AmbulanceServiceProvider(int ambulanceServicePRoviderID, String ambulanceServiceProviderName,String city,
-						              double latitude, Double longitude, String phoneNumber){
+	public  AmbulanceServiceProvider(int ambulanceServicePRoviderID, String ambulanceServiceProviderName,
+									String city, double latitude, Double longitude, String phoneNumber){
 			this.ambulanceServicePRoviderID = ambulanceServicePRoviderID;
 			this.ambulanceServiceProviderName = ambulanceServiceProviderName;
 			this.city = city;
