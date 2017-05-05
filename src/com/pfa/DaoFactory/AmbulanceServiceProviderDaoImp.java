@@ -16,24 +16,32 @@ public class AmbulanceServiceProviderDaoImp implements AmbulanceServiceProviderD
 	public ArrayList<AmbulanceServiceProvider> HospitalsBySpecialty() {
 		ArrayList<AmbulanceServiceProvider> AmbulanceServiceProviderList = 
 				new ArrayList<AmbulanceServiceProvider>();
-	      try{
-	    	  MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
-	    	  MongoDatabase database = mongoClient.getDatabase("hospitalsdb");
-	    	  MongoCollection<Document> collection = database.getCollection("hospitals");
-	    	  MongoCursor<Document> cursor = collection.find().iterator();
+		
+	    try{
+	    	MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+	    	MongoDatabase database = mongoClient.getDatabase("hospitalsdb");
+	    	MongoCollection<Document> collection = database.getCollection("hospitals");
+	    	MongoCursor<Document> cursor = collection.find().iterator();
 	    	  
-	    	  try {
-	    	      while (cursor.hasNext()) {
-	    	          System.out.println(cursor.next().toJson());
-	    	      }
-	    	  } finally {
+	    	try {
+	    		while (cursor.hasNext()) {
+	    			System.out.println(cursor.next().toJson());
+	    		}
+	    		
+	    	} 
+	    	
+	    	finally {
 	    	      cursor.close();
-	    	  }
-	    	  mongoClient.close();
+	    	}
+	    	
+	    	mongoClient.close();
 				
-	      }catch(Exception e){
+	    }
+	    catch(Exception e){
 	         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-	      }
-	      return AmbulanceServiceProviderList;
-	   }
+	    }
+	    
+	    return AmbulanceServiceProviderList;
+	   
+	}
 }
