@@ -13,5 +13,12 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/home/issam/Downloads/google-maps-services-0.1.7.jar"/>
+	<classpathentry kind="lib" path="/home/issam/Downloads/okhttp-2.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/issam/Downloads/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="/home/issam/Downloads/okio-1.8.0.jar"/>
+	<classpathentry kind="lib" path="/home/issam/Downloads/joda-time-2.1.jar"/>
+	<classpathentry kind="lib" path="/home/issam/Downloads/json-20160807.jar"/>
+	<classpathentry kind="lib" path="/home/issam/Downloads/mongo-java-driver-3.4.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

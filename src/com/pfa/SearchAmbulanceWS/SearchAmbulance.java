@@ -1,18 +1,18 @@
 package com.pfa.SearchAmbulanceWS;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.pfa.DatabaseConnection.DbConnection;
+import com.pfa.Dao.DbConnection;
+import com.pfa.Helpers.Location;
 
 public class SearchAmbulance {
 	
-	public 	ArrayList<AmbulanceServiceProvider> SearchAmbulanceBy(Double[] patientLocation,double[] targetLocation){
+	public 	ArrayList<AmbulanceServiceProvider> SearchAmbulanceBy(Location patientLocation, Location targetLocation){
+		
 		/*
 		 * in this method we will look for the nearest Ambulance service provider 
 		 * to the patient Or the client location 
@@ -59,7 +59,7 @@ public class SearchAmbulance {
 	
 	public static void main(String[] args){
 		SearchAmbulance  s =new SearchAmbulance ();
-		s.SearchAmbulanceBy([1], [1]);
+		s.SearchAmbulanceBy(null, null);
 	}
 
 }
