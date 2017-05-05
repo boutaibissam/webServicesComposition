@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.pfa.Dao.DbConnection;
+import com.pfa.DaoFactory.DbConnection;
 import com.pfa.Helpers.Location;
 
 public class SearchAmbulance {

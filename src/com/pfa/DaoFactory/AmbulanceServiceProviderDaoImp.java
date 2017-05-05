@@ -1,4 +1,4 @@
-package com.pfa.Dao;
+package com.pfa.DaoFactory;
 
 import java.util.ArrayList;
 
