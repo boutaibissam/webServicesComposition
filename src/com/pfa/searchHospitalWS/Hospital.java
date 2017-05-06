@@ -1,6 +1,6 @@
 package com.pfa.searchHospitalWS;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.pfa.Helpers.Location;
 
@@ -8,10 +8,10 @@ public class Hospital {
 	/*
 	 * Attributes 
 	 */
-	private int hospitalId;
+	private String hospitalId;
 	private String hospitalName;
 	private Location hospitalLocation;
-	private ArrayList<String> specialities;
+	private List<String> specialities;
 	
 	/*
 	 * Constructors 
@@ -21,7 +21,7 @@ public class Hospital {
 		
 	}
 	
-	public Hospital(int hospitalId, String hospitalName, Location hospitalLocation, ArrayList<String> specialities){
+	public Hospital(String hospitalId, String hospitalName, Location hospitalLocation, List<String> specialities){
 		this.hospitalId = hospitalId;
 		this.hospitalName = hospitalName;
 		this.hospitalLocation = hospitalLocation;
@@ -33,11 +33,11 @@ public class Hospital {
 	 * setter and getters
 	 */
 
-	public int getHospitalId() {
+	public String getHospitalId() {
 		return hospitalId;
 	}
 
-	public void setHospitalId(int hospitalId) {
+	public void setHospitalId(String hospitalId) {
 		this.hospitalId = hospitalId;
 	}
 
@@ -57,11 +57,11 @@ public class Hospital {
 		this.hospitalLocation = hospitalLocation;
 	}
 
-	public ArrayList<String> getSpecialities() {
+	public List<String> getSpecialities() {
 		return specialities;
 	}
 
-	public void setSpecialities(ArrayList<String> specialities) {
+	public void setSpecialities(List<String> specialities) {
 		this.specialities = specialities;
 	}
 		

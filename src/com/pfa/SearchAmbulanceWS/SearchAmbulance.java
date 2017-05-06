@@ -1,12 +1,7 @@
 package com.pfa.SearchAmbulanceWS;
 
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.pfa.DaoFactory.DbConnection;
 import com.pfa.Helpers.Location;
 
 public class SearchAmbulance {
@@ -30,30 +25,9 @@ public class SearchAmbulance {
 		 */
 	     
 			    
-	    ArrayList<AmbulanceServiceProvider>  liste = new ArrayList<AmbulanceServiceProvider>();
-		Statement stmt = null;
-		try {
-			stmt = DbConnection.connect("mydb").createStatement();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		String query =  "select * from Ambulance_service_proverders ;";
+	    
 		
-		ResultSet rs=null;	
-		try{
-			rs=stmt.executeQuery(query);	 
-			while(rs.next()){  
-			liste.add(new AmbulanceServiceProvider(rs.getInt("AmbulanceServiceID"),
-					rs.getString("AmbulanceServicename"), rs.getString("city"),rs.getDouble("latitude"),
-					rs.getDouble("longitude"), rs.getString("phoneNumber")));  
-		}
-
-		}
-		catch(Exception e){
-			// handling the exception	
-		}
-		
-		return liste;
+		return null;
 	    
 	}
 	

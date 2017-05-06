@@ -1,56 +1,46 @@
 package com.pfa.searchHospitalWS;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.pfa.DaoFactory.HospitalDaoImp;
+import com.pfa.Helpers.Location;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
-import com.pfa.DatabaseConnection.DbConnection;
+
 
 public class SearchHospitalService {
-	private static ArrayList<Hospital> hospitalsListBySpeciality;
-	private static ArrayList<Hospital> hospitalsListOrdredByLocation;
-	
-	/*
-	 * this function is only used to optimize the google maps api 
-	 */
-	
-	public ArrayList<Hospital> SearchBySpecialty(String speciality){
 		
-		ResultSet  rs = null;
-		
-		String query = "select * from  hospitals where hospital_id = "+
-					   "select hospital_id from association_table where hospital_id = "+
-					   "select speciality_id form specialities where speciality_name = ?";
-		String query1 = "select speaciaty_name from  specialities where speciality_id = "+
-					    "select speciality_id from association_table where hospital_id = "+
-					    " "; 
-		try {
-			PreparedStatement pst= DbConnection.connect("databaseName").prepareStatement(query);
-			pst.setString(1, speciality);
-			rs =pst.executeQuery();
-			while(rs.next()){
-				hospitalsListBySpeciality.add(new Hospital(
-						rs.getInt("hospital_id"),
-						rs.getString("hospitalName"),
-						new Location(rs.getDouble("latitude"), rs.getDoubale("longuitude")),
-						new ArrayList<String> liste
-						));
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
-	
 	
 	// this the final service provided to the client 
-	public ArrayList<Hospital> HospitalsOrdredByLocation(ArrayList<Hospital> HospitalsBySpeciality){
-		return null;
+	public ArrayList<Hospital> HospitalsOrdredByLocation(String speciality, Object patientLocation){
+		
+		ArrayList<Hospital>  hospitalsBySpeciality= new HospitalDaoImp()
+				.HospitalsBySpecialty(speciality, patientLocation);
+		
+		ArrayList<Location> listOflocations = new ArrayList<Location>();
+		
+		for(Hospital x : hospitalsBySpeciality){
+			listOflocations.add(x.getHospitalLocation());
+		}
+		if(patientLocation  instanceof  String){
+			try {
+				Location.getGeoPointFromAddress((String) patientLocation).calculateDistanceMatrix(listOflocations);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		else if (patientLocation  instanceof  Location){
+			((Location)patientLocation).calculateDistanceMatrix(listOflocations);
+		}
+		
+		
+		return hospitalsBySpeciality;
+		
 	}
 	
-	
+	public static void main(String[] args){
+		System.out.println(new SearchHospitalService().HospitalsOrdredByLocation("phisicien","rabat"));
+	}
 
 }

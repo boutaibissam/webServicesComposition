@@ -20,5 +20,6 @@
 	<classpathentry kind="lib" path="/home/issam/Downloads/joda-time-2.1.jar"/>
 	<classpathentry kind="lib" path="/home/issam/Downloads/json-20160807.jar"/>
 	<classpathentry kind="lib" path="/home/issam/Downloads/mongo-java-driver-3.4.2.jar"/>
+	<classpathentry kind="lib" path="/home/issam/Downloads/appengine-api-1.0-sdk-1.9.52.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
