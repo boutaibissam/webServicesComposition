@@ -11,15 +11,17 @@ import java.util.ArrayList;
 public class SearchHospitalService {
 		
 	
-	// this the final service provided to the client 
+	/*
+	 *  this the final service provided to the client 
+	 */
 	public ArrayList<Hospital> HospitalsOrdredByLocation(String speciality, Object patientLocation){
 		
-		ArrayList<Hospital>  hospitalsBySpeciality= new HospitalDaoImp()
+		ArrayList<Hospital>  hospitals= new HospitalDaoImp()
 				.HospitalsBySpecialty(speciality, patientLocation);
 		
 		ArrayList<Location> listOflocations = new ArrayList<Location>();
 		
-		for(Hospital x : hospitalsBySpeciality){
+		for(Hospital x : hospitals){
 			listOflocations.add(x.getHospitalLocation());
 		}
 		if(patientLocation  instanceof  String){
@@ -34,13 +36,13 @@ public class SearchHospitalService {
 			((Location)patientLocation).calculateDistanceMatrix(listOflocations);
 		}
 		
+		/*
+		 * Ordering no yet implemented 
+		 */
 		
-		return hospitalsBySpeciality;
+		return hospitals;
 		
 	}
 	
-	public static void main(String[] args){
-		System.out.println(new SearchHospitalService().HospitalsOrdredByLocation("phisicien","rabat"));
-	}
-
+	
 }

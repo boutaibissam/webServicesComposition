@@ -34,21 +34,21 @@ public class Location implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
-	/*
+	/**
 	 * Class Attributes 
 	 */
 	
 	private Double latitude;
 	private Double longuitude;
 	
-	/*
+	/**
 	 * Constructor with no argurment 
 	 */
 	public Location(){
 		
 	}
 	
-	/*
+	/**
 	 * Constructor with arguments 
 	 */
 	
@@ -57,7 +57,8 @@ public class Location implements Serializable {
 		this.longuitude = longuitude;
 	
 	}
-	/*
+	
+	/**
 	 * Setters and Getters
 	 */
 	
@@ -84,7 +85,7 @@ public class Location implements Serializable {
 	}
 
 	
-	/*
+	/**
 	 * This method calculate the distance between to 
 	 * position using DistanceMatrix 
 	 * provided bye Google Maps Api.
@@ -95,7 +96,7 @@ public class Location implements Serializable {
 		DistanceMatrixApiRequest req=null;
 		ArrayList<String> dest =new ArrayList<String>();
 		String[] destinations =null;
-		/* 
+		/** 
 		 * origins[one origin ]
 		 * 
 		 * destinations(multiple destination )
@@ -144,12 +145,14 @@ public class Location implements Serializable {
         connection.setUseCaches(false);
         connection.setDoOutput(true);
 
-        //Send request
+        /**
+         * Send request
+         */
         DataOutputStream wr = new DataOutputStream (
             connection.getOutputStream());
         wr.close();
         
-        /*
+        /**
          * Get Response  
          */
         InputStream in = connection.getInputStream();
@@ -162,7 +165,7 @@ public class Location implements Serializable {
         }
         rd.close();
         
-        /*
+        /**
          * HttpResponse to JsonObject to get latitude and longitude
          */
 
